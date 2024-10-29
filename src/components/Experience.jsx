@@ -11,7 +11,7 @@ function Experience() {
           <div className="p-4 border border-gray-700 rounded-lg bg-gray-800">
             <div className="flex items-center space-x-2">
               <img
-                src="/ex2.png"
+                src={`${import.meta.env.BASE_URL}ex2.png`}
                 alt="Vault Of Codes Logo"
                 className="h-6 w-6 rounded-sm"
               />
@@ -37,7 +37,7 @@ function Experience() {
           <div className="p-4 border border-gray-700 rounded-lg mb-96 bg-gray-800">
             <div className="flex items-center space-x-2">
               <img
-                src="/ex1.png"
+                src={`${import.meta.env.BASE_URL}ex1.png`}
                 alt="CodeSpeedy Logo"
                 className="h-6 w-6 rounded-sm"
               />

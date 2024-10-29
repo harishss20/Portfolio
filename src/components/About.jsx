@@ -14,7 +14,7 @@ const About = () => {
           rel="noopener noreferrer"
         >
           <img
-            src="/linkedin.png"
+            src={`${import.meta.env.BASE_URL}linkedin.png`}
             alt="LinkedIn"
             className="w-8 h-8 md:w-10 md:h-10 rounded-xl"
           />
@@ -25,7 +25,7 @@ const About = () => {
           rel="noopener noreferrer"
         >
           <img
-            src="/github.jpg"
+            src={`${import.meta.env.BASE_URL}github.jpg`}
             alt="GitHub"
             className="w-8 h-8 md:w-10 md:h-10 rounded-xl"
           />
@@ -36,7 +36,7 @@ const About = () => {
           rel="noopener noreferrer"
         >
           <img
-            src="/twitter.png"
+            src={`${import.meta.env.BASE_URL}twitter.png`}
             alt="Twitter"
             className="w-8 h-8 md:w-10 md:h-10 rounded-xl"
           />
@@ -45,7 +45,7 @@ const About = () => {
 
       <div id="Animation-Profile" className="flex-none mb-4 md:mb-0 md:mr-20">
         <img
-          src="/profile.jpg"
+          src={`${import.meta.env.BASE_URL}profile.jpg`}
           alt="Harish SS"
           className="w-32 h-32 md:w-64 md:h-64 lg:w-80 lg:h-80 object-cover rounded-lg"
         />
@@ -68,8 +68,16 @@ const About = () => {
           innovative solutions that elevate user experiences.
         </p>
         <button className="flex items-center">
-          <img src="/download.png" alt="Download" className="w-6 h-6 mr-2" />
-          <a href="/HarishResume.pdf" className="text-white" download>
+          <img
+            src={`${import.meta.env.BASE_URL}download.png`}
+            alt="Download"
+            className="w-6 h-6 mr-2"
+          />
+          <a
+            href={`${import.meta.env.BASE_URL}HarishResume.pdf`}
+            className="text-white"
+            download
+          >
             Resume
           </a>
         </button>

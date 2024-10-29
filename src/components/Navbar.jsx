@@ -12,7 +12,7 @@ function Navbar() {
     <header className="bg-gray-800 fixed top-0 left-0 right-0 z-50 shadow-md">
       <div className="container mx-auto px-4 flex justify-between items-center py-3">
         <h1 className="text-white font-bold text-xl hover:text-red duration-300">
-          Harish Portfolio
+          Harish SS
         </h1>
 
         <nav className="hidden md:flex space-x-6">

@@ -60,12 +60,9 @@ const About = () => {
           <span className="text-amber-300 hover:text-white duration-300">
             Harish SS
           </span>
-          , a passionate developer committed to bringing innovative ideas to
-          life with elegant code and captivating design. My focus is on crafting
-          impactful, user-centered applications that make a difference. I thrive
-          on tackling new challenges and pushing the boundaries of what’s
-          possible. Always eager to learn and grow, I'm excited to create
-          innovative solutions that elevate user experiences.
+          , a passionate developer dedicated to crafting impactful, user-centric
+          applications. I love tackling challenges, pushing boundaries, and
+          building innovative solutions that enhance user experiences.
         </p>
         <button className="flex items-center">
           <img

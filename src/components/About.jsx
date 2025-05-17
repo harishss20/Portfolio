@@ -1,11 +1,27 @@
-import React from "react";
+import React, { useRef } from "react";
 import "../App.css";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 const About = () => {
+  const container = useRef();
+
+  useGSAP(
+    () => {
+      gsap.to(container.current, {
+        rotate: 360,
+        duration: 2,
+        repeat: -1,
+      });
+    },
+    {
+      scope: container,
+    }
+  );
   return (
     <div
       id="about"
-      className="flex flex-col md:flex-row items-center mt-40 mb-40 w-full text-white p-4"
+      className="flex flex-col md:flex-row items-center mt-40 mb-40 w-full text-white p-4 bo"
     >
       <div className="flex flex-none md:flex-col items-center justify-center space-x-4 md:space-x-0 md:space-y-4 mb-4 md:mb-0 md:mr-12">
         <a
@@ -43,12 +59,14 @@ const About = () => {
         </a>
       </div>
 
-      <div id="Animation-Profile" className="flex-none mb-4 md:mb-0 md:mr-20">
-        <img
-          src={`${import.meta.env.BASE_URL}profile.jpg`}
-          alt="Harish SS"
-          className="w-32 h-32 md:w-64 md:h-64 lg:w-80 lg:h-80 object-cover rounded-lg"
-        />
+      <div className="flex-none mb-4 md:mb-0 md:mr-20 border-dashed">
+        <div className="border-4 border-line w-32 h-32 md:w-64 md:h-64 lg:w-80 lg:h-80 flex items-center justify-center rounded-full">
+          <img
+            src={`${import.meta.env.BASE_URL}profile.jpg`}
+            alt="Harish SS"
+            className="w-32 h-32 md:w-64 md:h-64 lg:w-70 lg:h-70 object-cover "
+          />
+        </div>
       </div>
 
       <div className="flex flex-col md:justify-center items-center text-center md:text-left">
@@ -66,6 +84,7 @@ const About = () => {
         </p>
         <button className="flex items-center">
           <img
+            ref={container}
             src={`${import.meta.env.BASE_URL}download.png`}
             alt="Download"
             className="w-6 h-6 mr-2"

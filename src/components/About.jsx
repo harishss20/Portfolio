@@ -2,15 +2,36 @@ import React, { useRef } from "react";
 import "../App.css";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import SplitText from "gsap/SplitText";
 
 const About = () => {
   const container = useRef();
+  const textConRef = useRef();
+  gsap.registerPlugin(SplitText);
+
+  useGSAP(
+    () => {
+      const split = SplitText.create(textConRef.current, {
+        type: "words,chars,lines",
+        onSplit: (self) => {
+          gsap.from(self.chars, {
+            y: 10,
+            autoAlpha: 0,
+            stagger: 0.025,
+            duration: 1.5,
+            ease: "power3.out",
+          });
+        },
+      });
+    },
+    { scope: textConRef }
+  );
 
   useGSAP(
     () => {
       gsap.to(container.current, {
         rotate: 360,
-        duration: 2,
+        duration: 1.5,
         repeat: -1,
       });
     },
@@ -20,7 +41,7 @@ const About = () => {
   );
   return (
     <div
-      id="about"
+      id=""
       className="flex flex-col md:flex-row items-center mt-40 mb-40 w-full text-white p-4 bo"
     >
       <div className="flex flex-none md:flex-col items-center justify-center space-x-4 md:space-x-0 md:space-y-4 mb-4 md:mb-0 md:mr-12">
@@ -59,28 +80,26 @@ const About = () => {
         </a>
       </div>
 
-      <div className="flex-none mb-4 md:mb-0 md:mr-20 border-dashed">
-        <div className="border-4 border-line w-32 h-32 md:w-64 md:h-64 lg:w-80 lg:h-80 flex items-center justify-center rounded-full">
-          <img
-            src={`${import.meta.env.BASE_URL}profile.jpg`}
-            alt="Harish SS"
-            className="w-32 h-32 md:w-64 md:h-64 lg:w-70 lg:h-70 object-cover "
-          />
-        </div>
+      <div className="flex-none mb-4 md:mb-0 md:mr-20 border-dashed relative">
+        <img
+          src={`${import.meta.env.BASE_URL}profile.jpg`}
+          alt="Harish SS"
+          className="w-32 h-32 md:w-64 md:h-64 lg:w-70 lg:h-70 object-cover relative left-8 top-8 rounded-full"
+        />
       </div>
 
       <div className="flex flex-col md:justify-center items-center text-center md:text-left">
         <h1 className="text-3xl md:text-5xl font-bold mb-2 md:mb-4 hover:text-red duration-300">
           About Me
         </h1>
-        <p className="text-base md:text-lg mb-4 w-full md:w-auto">
-          I'm{" "}
-          <span className="text-amber-300 hover:text-white duration-300">
-            Harish SS
-          </span>
-          , a passionate developer dedicated to crafting impactful, user-centric
-          applications. I love tackling challenges, pushing boundaries, and
-          building innovative solutions that enhance user experiences.
+        <p
+          ref={textConRef}
+          className=" text-base md:text-lg mb-4 w-full md:w-auto"
+        >
+          I'm Harish SS , a passionate developer dedicated to crafting
+          impactful, user-centric applications. I love tackling challenges,
+          pushing boundaries, and building innovative solutions that enhance
+          user experiences.
         </p>
         <button className="flex items-center">
           <img
